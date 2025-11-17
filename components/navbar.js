@@ -11,18 +11,19 @@ class CustomNavbar extends HTMLElement {
                     right: 0;
                     z-index: 1000;
                     transition: all 0.3s ease;
-                }
-                :host([scrolled="true"]) {
-                    background-color: rgba(255, 255, 255, 0.95);
+                    background-color: white;
                     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
                 }
-                :host([scrolled="true"]) nav a {
-                    color: #1f2937;
+                nav a {
+                    color: #3b82f6;
                 }
-                :host([scrolled="true"]) .logo {
-                    color: #1f2937;
+                .logo {
+                    color: #3b82f6;
                 }
-                nav {
+                :host([scrolled="true"]) {
+                    background-color: white;
+                }
+nav {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -42,16 +43,16 @@ class CustomNavbar extends HTMLElement {
                     gap: 2rem;
                 }
                 .nav-links a {
-                    color: white;
+                    color: #3b82f6;
                     text-decoration: none;
                     font-weight: 500;
                     transition: color 0.3s ease;
                     position: relative;
                 }
                 .nav-links a:hover {
-                    color: #93c5fd;
+                    color: #1d4ed8;
                 }
-                .nav-links a::after {
+.nav-links a::after {
                     content: '';
                     position: absolute;
                     width: 0;
@@ -102,8 +103,11 @@ class CustomNavbar extends HTMLElement {
                 }
             </style>
             <nav>
-                <a href="#hero" class="logo">Daniel Dable</a>
-                <div class="nav-links">
+                    <a href="#hero" class="logo flex items-center gap-2">
+                        <img src="http://static.photos/people/40x40/1" alt="Daniel Dable" class="rounded-full h-8 w-8 object-cover">
+                        Daniel Dable
+                    </a>
+<div class="nav-links">
                     <a href="#about">About</a>
                     <a href="#experience">Experience</a>
                     <a href="#skills">Skills</a>
