@@ -69,9 +69,14 @@ class PortfolioItem extends HTMLElement {
                     <p class="portfolio-role">${role}</p>
                     <p class="portfolio-tools">${tools}</p>
                     <p class="portfolio-outcome">${outcome}</p>
+                    <div class="mt-4">
+                        <a href="#" class="download-btn inline-flex items-center px-3 py-1.5 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <i data-feather="download" class="mr-2"></i> Download Case Study
+                        </a>
+                    </div>
                 </div>
             </div>
-        `;
+`;
     }
 }
 

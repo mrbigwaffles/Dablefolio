@@ -25,17 +25,26 @@ document.addEventListener('DOMContentLoaded', function() {
             tooltip.classList.add('hidden');
         });
     });
-
-    // Portfolio modal functionality
+    // Portfolio modal and download functionality
     const portfolioItems = document.querySelectorAll('portfolio-item');
     portfolioItems.forEach(item => {
+        const downloadBtn = item.shadowRoot.querySelector('.download-btn');
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const title = item.getAttribute('title');
+                alert(`Downloading case study for ${title}`);
+            });
+        }
+    });
+portfolioItems.forEach(item => {
         item.addEventListener('click', () => {
             const title = item.getAttribute('title');
             const image = item.getAttribute('image');
             const role = item.getAttribute('role');
             const tools = item.getAttribute('tools');
             const outcome = item.getAttribute('outcome');
-            
             const modalHTML = `
                 <div class="modal fixed inset-0 z-50 flex items-center justify-center p-4">
                     <div class="modal-overlay absolute inset-0"></div>
@@ -59,19 +68,31 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <h4 class="font-semibold">Outcome</h4>
                                     <p>${outcome}</p>
                                 </div>
+                                <div class="pt-4">
+                                    <a href="#" class="download-btn inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                        <i data-feather="download" class="mr-2"></i> Download Full Case Study (PDF)
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            `;
+`;
             
             document.body.insertAdjacentHTML('beforeend', modalHTML);
             feather.replace();
-            
             const modal = document.querySelector('.modal');
             const closeBtn = document.querySelector('.modal-close');
             
-            closeBtn.addEventListener('click', () => {
+            // Set up download button click handler
+            const downloadBtn = modal.querySelector('.download-btn');
+            downloadBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                // In a real implementation, this would link to actual PDF files
+                alert(`Downloading case study for ${title}`);
+            });
+closeBtn.addEventListener('click', () => {
                 modal.remove();
             });
             
