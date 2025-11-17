@@ -1,5 +1,15 @@
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all tooltips
+    // Form submission handling
+    const contactForm = document.querySelector('#contact form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            // You can add form validation here if needed
+            // e.preventDefault(); // Uncomment if using AJAX submission
+        });
+    }
+
+// Initialize all tooltips
     const tooltipTriggers = document.querySelectorAll('[data-tooltip]');
     tooltipTriggers.forEach(trigger => {
         const tooltip = document.createElement('div');
