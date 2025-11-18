@@ -34,6 +34,14 @@ section h2::after {
     left: 20%;
     border-radius: 2px;
 }
+/* Achievements section styling */
+#achievements .bg-white {
+    transition: transform 0.3s ease;
+}
+#achievements .bg-white:hover {
+    transform: translateY(-8px);
+}
+
 /* Qualifications section styling */
 #qualifications ul li {
     padding: 0.5rem 0;

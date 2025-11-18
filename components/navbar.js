@@ -107,10 +107,11 @@ class CustomNavbar extends HTMLElement {
                     <a href="#about">About</a>
                     <a href="#qualifications">Qualifications</a>
                     <a href="#experience">Experience</a>
-<a href="#skills">Skills</a>
+                    <a href="#skills">Skills</a>
                     <a href="#portfolio">Portfolio</a>
+                    <a href="#achievements">Achievements</a>
                     <a href="#life">Life</a>
-                    <a href="#contact">Contact</a>
+<a href="#contact">Contact</a>
                 </div>
                 <button class="mobile-menu-btn">
                     <i data-feather="menu"></i>
