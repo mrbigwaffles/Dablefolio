@@ -30,12 +30,25 @@ document.addEventListener('DOMContentLoaded', function() {
     portfolioItems.forEach(item => {
         const downloadBtn = item.shadowRoot.querySelector('.download-btn');
         if (downloadBtn) {
-            downloadBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const title = item.getAttribute('title');
-                alert(`Downloading case study for ${title}`);
-            });
+           downloadBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const title = item.getAttribute('title');
+    const pdf = item.getAttribute('pdf');
+
+    if (pdf) {
+        const link = document.createElement('a');
+        link.href = pdf;
+        link.download = `${title}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    } else {
+        alert("PDF not found.");
+    }
+});
+
         }
     });
 portfolioItems.forEach(item => {
@@ -86,12 +99,24 @@ portfolioItems.forEach(item => {
             
             // Set up download button click handler
             const downloadBtn = modal.querySelector('.download-btn');
-            downloadBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                // In a real implementation, this would link to actual PDF files
-                alert(`Downloading case study for ${title}`);
-            });
+          const pdf = item.getAttribute('pdf');
+
+downloadBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (pdf) {
+        const link = document.createElement('a');
+        link.href = pdf;
+        link.download = `${title}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    } else {
+        alert("PDF not found.");
+    }
+});
+
 closeBtn.addEventListener('click', () => {
                 modal.remove();
             });
